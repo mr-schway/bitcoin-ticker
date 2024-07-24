@@ -52,19 +52,12 @@ class _PriceScreenState extends State<PriceScreen> {
             color: Colors.lightBlue,
             child: DropdownButton<String>(
               value: selectedCurrency,
-              items: const [
-                DropdownMenuItem(
-                  value: 'USD',
-                  child: Text('USD'),
-                ),
-                DropdownMenuItem(
-                  value: 'EUR',
-                  child: Text('EUR'),
-                ),
-                DropdownMenuItem(
-                  value: 'GBP',
-                  child: Text('GBP'),
-                ),
+              items: [
+                for (String currency in currenciesList)
+                  DropdownMenuItem(
+                    value: currency,
+                    child: Text(currency),
+                  ),
               ],
               onChanged: (String? value) {
                 setState(() {
